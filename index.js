@@ -4,7 +4,6 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const { MongoClient } = require('mongodb');
 
 const questions = [
   { id: 1, text: "What is C#?", options: ["A database", "A programming language", "An operating system", "A web browser"], correctAnswer: 1 },
@@ -53,14 +52,7 @@ app.use(cors({
 }));
 
 
-const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri);
 
-
-async function connectToDatabase() {
-  await client.connect();
-  return client.db('your_database_name');
-}
 
 // Read users from db.json
 const getUsers = () => {
