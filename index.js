@@ -16,6 +16,7 @@ const SECRET_KEY = 'app_quiz123!!';
 
 app.use(express.json());
 app.use(bodyParser.json());
+
 app.use(cors({
   origin: 'https://quiz-4eda1.web.app', //https://quiz-4eda1.web.app
   credentials: true
