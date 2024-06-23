@@ -17,14 +17,14 @@ const SECRET_KEY = 'app_quiz123!!';
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors({
-  origin: '//https://quiz-4eda1.web.app', //https://quiz-4eda1.web.app
+  origin: 'https://quiz-4eda1.web.app', //https://quiz-4eda1.web.app
   credentials: true
 }));
 
 
 
 
-const uri = "mongodb+srv://khalilreali84:v1Ub8vijMFuTXm0D@cluster0.qrf3e93.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 async function connectToDatabase() {
